@@ -927,5 +927,32 @@ function createPost() {
     document.getElementById('postInput').value = "";
 
 }
+// your existing code above
+
+
+// PASTE THE NEW CODE BELOW THIS LINE
+document.addEventListener("DOMContentLoaded", function() {
+
+const startChatBtn = document.getElementById("start-chat-btn");
+const bookSessionBtn = document.getElementById("book-session-btn");
+const exploreBtn = document.getElementById("explore-resources-btn");
+
+startChatBtn.addEventListener("click", function () {
+    document.getElementById("home-page").style.display = "none";
+    document.getElementById("ai-chat-page").style.display = "block";
+});
+
+bookSessionBtn.addEventListener("click", function () {
+    document.getElementById("home-page").style.display = "none";
+    document.getElementById("booking-page").style.display = "block";
+});
+
+exploreBtn.addEventListener("click", function () {
+    document.getElementById("home-page").style.display = "none";
+    document.getElementById("resources-page").style.display = "block";
+});
+
+});
+
 
 
