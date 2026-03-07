@@ -632,34 +632,3 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
-// --- WELLNESS FUNCTIONS ---
-function startBreathingLogic() {
-    const circle = document.getElementById('breathing-circle');
-    const instruction = document.getElementById('breathing-instruction');
-    if (!circle) return;
-
-    breathingInterval = setInterval(() => {
-        if (circle.classList.contains('grow')) {
-            circle.classList.remove('grow');
-            circle.innerText = "Exhale";
-            if (instruction) instruction.innerText = "Slowly release your breath...";
-        } else {
-            circle.classList.add('grow');
-            circle.innerText = "Inhale";
-            if (instruction) instruction.innerText = "Fill your lungs with air...";
-        }
-    }, 4000); 
-}
-
-function addWater() {
-    const dailyGoal = 8;
-    const progressBar = document.getElementById('water-progress');
-    const textCount = document.getElementById('water-count');
-
-    if (waterGlasses < dailyGoal) {
-        waterGlasses++;
-        const progress = (waterGlasses / dailyGoal) * 100;
-        if (progressBar) progressBar.style.width = progress + "%";
-        if (textCount) textCount.innerText = `${waterGlasses}/${dailyGoal}`;
-    }
-}
