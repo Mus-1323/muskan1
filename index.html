@@ -742,107 +742,111 @@
     </div> -->
 
     <div id="peer-forum-page" class="page hidden">
-        <h1 class="text-4xl font-bold main-text mb-6">Community Feed</h1>
-        <div id="feed" class="tab-content active mb-12">
-            <div class="pa-card composer bg-white p-6 rounded-xl border-2 main-border mb-6">
-                <h3 class="text-xl font-bold main-text mb-4">Share Your Feelings</h3>
-                <textarea id="postInput" class="w-full p-3 border main-border rounded-lg mb-4" placeholder="What's on your mind?"></textarea>
-                <div class="composer-footer flex justify-between items-center">
-                    <div class="controls flex gap-4 items-center">
-                        <select id="moodSelect" class="p-2 border rounded-lg">
-                            <option>😊 Happy</option>
-                            <option>😰 Stressed</option>
-                            <option>😔 Sad</option>
-                        </select>
-                        <label class="text-gray-600"><input type="checkbox" id="anonCheck" class="mr-2"> Anonymous</label>
-                    </div>
-                    <button class="main-bg text-white px-6 py-2 rounded-lg" onclick="createPost()">Post to Forum</button>
+    
+    <h1 class="muskan text-4xl font-bold main-text mb-6">Community Feed</h1>
+    <div id="feed" class="tab-content active mb-12">
+        <div class="pa-card composer bg-white p-6 rounded-xl border-2 main-border mb-6">
+            <h3 class="text-xl font-bold main-text mb-4">Share Your Feelings</h3>
+            <textarea id="postInput" class="w-full p-3 border main-border rounded-lg mb-4" placeholder="What's on your mind?"></textarea>
+            <div class="composer-footer flex justify-between items-center">
+                <div class="controls flex gap-4 items-center">
+                    <select id="moodSelect" class="p-2 border rounded-lg">
+                        <option>😊 Happy</option>
+                        <option>😰 Stressed</option>
+                        <option>😔 Sad</option>
+                    </select>
+                    <label class="text-gray-600"><input type="checkbox" id="anonCheck" class="mr-2"> Anonymous</label>
                 </div>
+                <button class="main-bg text-white px-6 py-2 rounded-lg" onclick="createPost()">Post to Forum</button>
             </div>
-            <div id="postFeed" class="space-y-4"></div>
         </div>
+        <div id="postFeed" class="space-y-4"></div>
+    </div>
 
-        <h1 class="text-4xl font-bold main-text mb-6">Peer Supporters</h1>
-        <div id="supportSection" class="feature-content">
-            <div class="supporter-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="pa-card contact-card bg-white p-6 rounded-xl border-2 main-border shadow-md">
-                    <div class="user-info flex items-center mb-4">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rahul" class="w-16 h-16 rounded-full mr-4 border-2 border-purple-500">
-                        <div class="details">
-                            <h4 class="font-bold text-lg">Rahul Sharma</h4>
-                            <p class="text-sm text-gray-500">Psychology Student | Age: 24</p>
-                        </div>
-                    </div>
-                    <div class="action-row flex justify-between gap-2 mt-4">
-                        <a href="tel:8010604221" class="flex-1 text-center bg-green-500 text-white p-2 rounded-lg text-sm font-bold">Call</a>
-                        <a href="https://wa.me/8010604221" class="flex-1 text-center bg-green-600 text-white p-2 rounded-lg text-sm font-bold">WhatsApp</a>
-                        <button class="flex-1 text-center bg-blue-500 text-white p-2 rounded-lg text-sm font-bold">Video</button>
+    <hr class="my-10 border-gray-300">
+
+    <h1 class="peer-heading text-4xl font-bold main-text mb-6">Peer Supporters</h1>
+    <div id="supportSection" class="feature-content">
+        <div class="supporter-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <div class="pa-card contact-card bg-white p-6 rounded-xl border-2 main-border shadow-md">
+                <div class="user-info flex items-center mb-4">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rahul" class="w-16 h-16 rounded-full mr-4 border-2 border-purple-500">
+                    <div class="details">
+                        <h4 class="font-bold text-lg">Rahul Sharma</h4>
+                        <p class="text-sm text-gray-500">Psychology Student | Age: 24</p>
                     </div>
                 </div>
-
-                <div class="pa-card contact-card bg-white p-6 rounded-xl border-2 main-border shadow-md">
-                    <div class="user-info flex items-center mb-4">
-                        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Priya" class="w-16 h-16 rounded-full mr-4 border-2 border-purple-500">
-                        <div class="details">
-                            <h4 class="font-bold text-lg">Priya Patel</h4>
-                            <p class="text-sm text-gray-500">Social Worker | Age: 26</p>
-                        </div>
-                    </div>
-                    <div class="action-row flex justify-between gap-2 mt-4">
-                        <a href="tel:9158515258" class="flex-1 text-center bg-green-500 text-white p-2 rounded-lg text-sm font-bold">Call</a>
-                        <a href="https://wa.me/9158515258" class="flex-1 text-center bg-green-600 text-white p-2 rounded-lg text-sm font-bold">WhatsApp</a>
-                        <button class="flex-1 text-center bg-blue-500 text-white p-2 rounded-lg text-sm font-bold">Video</button>
-                    </div>
-                </div>
-
-                <div class="pa-card contact-card bg-white p-6 rounded-xl border-2 main-border shadow-md">
-                    <div class="user-info flex items-center mb-4">
-                        <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Aman" class="w-16 h-16 rounded-full mr-4 border-2 border-purple-500">
-                        <div class="details">
-                            <h4 class="font-bold text-lg">Aman Verma</h4>
-                            <p class="text-sm text-gray-500">Counselling Intern | Age: 23</p>
-                        </div>
-                    </div>
-                    <div class="action-row flex justify-between gap-2 mt-4">
-                        <a href="tel:9021393814" class="flex-1 text-center bg-green-500 text-white p-2 rounded-lg text-sm font-bold">Call</a>
-                        <a href="https://wa.me/9021393814" class="flex-1 text-center bg-green-600 text-white p-2 rounded-lg text-sm font-bold">WhatsApp</a>
-                        <button class="flex-1 text-center bg-blue-500 text-white p-2 rounded-lg text-sm font-bold">Video</button>
-                    </div>
-                </div>
-
-                <div class="pa-card contact-card bg-white p-6 rounded-xl border-2 main-border shadow-md">
-                    <div class="user-info flex items-center mb-4">
-                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Sneha" class="w-16 h-16 rounded-full mr-4 border-2 border-purple-500">
-                        <div class="details">
-                            <h4 class="font-bold text-lg">Sneha Gupta</h4>
-                            <p class="text-sm text-gray-500">NGO Volunteer | Age: 25</p>
-                        </div>
-                    </div>
-                    <div class="action-row flex justify-between gap-2 mt-4">
-                        <a href="tel:7447482285" class="flex-1 text-center bg-green-500 text-white p-2 rounded-lg text-sm font-bold">Call</a>
-                        <a href="https://wa.me/7447482285" class="flex-1 text-center bg-green-600 text-white p-2 rounded-lg text-sm font-bold">WhatsApp</a>
-                        <button class="flex-1 text-center bg-blue-500 text-white p-2 rounded-lg text-sm font-bold">Video</button>
-                    </div>
-                </div>
-
-                <div class="pa-card contact-card bg-white p-6 rounded-xl border-2 main-border shadow-md">
-                    <div class="user-info flex items-center mb-4">
-                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Karan" class="w-16 h-16 rounded-full mr-4 border-2 border-purple-500">
-                        <div class="details">
-                            <h4 class="font-bold text-lg">Karan Mehta</h4>
-                            <p class="text-sm text-gray-500">Mental Health Volunteer | Age: 27</p>
-                        </div>
-                    </div>
-                    <div class="action-row flex justify-between gap-2 mt-4">
-                        <a href="tel:8668962556" class="flex-1 text-center bg-green-500 text-white p-2 rounded-lg text-sm font-bold">Call</a>
-                        <a href="https://wa.me/8668962556" class="flex-1 text-center bg-green-600 text-white p-2 rounded-lg text-sm font-bold">WhatsApp</a>
-                        <button class="flex-1 text-center bg-blue-500 text-white p-2 rounded-lg text-sm font-bold">Video</button>
-                    </div>
+                <div class="action-row flex justify-between gap-2 mt-4">
+                    <a href="tel:8010604221" class="flex-1 text-center bg-green-500 text-white p-2 rounded-lg text-sm font-bold">Call</a>
+                    <a href="https://wa.me/8010604221" class="flex-1 text-center bg-green-600 text-white p-2 rounded-lg text-sm font-bold">WhatsApp</a>
+                    <button class="flex-1 text-center bg-blue-500 text-white p-2 rounded-lg text-sm font-bold">Video</button>
                 </div>
             </div>
+
+            <div class="pa-card contact-card bg-white p-6 rounded-xl border-2 main-border shadow-md">
+                <div class="user-info flex items-center mb-4">
+                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Priya" class="w-16 h-16 rounded-full mr-4 border-2 border-purple-500">
+                    <div class="details">
+                        <h4 class="font-bold text-lg">Priya Patel</h4>
+                        <p class="text-sm text-gray-500">Social Worker | Age: 26</p>
+                    </div>
+                </div>
+                <div class="action-row flex justify-between gap-2 mt-4">
+                    <a href="tel:9158515258" class="flex-1 text-center bg-green-500 text-white p-2 rounded-lg text-sm font-bold">Call</a>
+                    <a href="https://wa.me/9158515258" class="flex-1 text-center bg-green-600 text-white p-2 rounded-lg text-sm font-bold">WhatsApp</a>
+                    <button class="flex-1 text-center bg-blue-500 text-white p-2 rounded-lg text-sm font-bold">Video</button>
+                </div>
+            </div>
+
+            <div class="pa-card contact-card bg-white p-6 rounded-xl border-2 main-border shadow-md">
+                <div class="user-info flex items-center mb-4">
+                    <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Aman" class="w-16 h-16 rounded-full mr-4 border-2 border-purple-500">
+                    <div class="details">
+                        <h4 class="font-bold text-lg">Aman Verma</h4>
+                        <p class="text-sm text-gray-500">Counselling Intern | Age: 23</p>
+                    </div>
+                </div>
+                <div class="action-row flex justify-between gap-2 mt-4">
+                    <a href="tel:9021393814" class="flex-1 text-center bg-green-500 text-white p-2 rounded-lg text-sm font-bold">Call</a>
+                    <a href="https://wa.me/9021393814" class="flex-1 text-center bg-green-600 text-white p-2 rounded-lg text-sm font-bold">WhatsApp</a>
+                    <button class="flex-1 text-center bg-blue-500 text-white p-2 rounded-lg text-sm font-bold">Video</button>
+                </div>
+            </div>
+
+            <div class="pa-card contact-card bg-white p-6 rounded-xl border-2 main-border shadow-md">
+                <div class="user-info flex items-center mb-4">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Sneha" class="w-16 h-16 rounded-full mr-4 border-2 border-purple-500">
+                    <div class="details">
+                        <h4 class="font-bold text-lg">Sneha Gupta</h4>
+                        <p class="text-sm text-gray-500">NGO Volunteer | Age: 25</p>
+                    </div>
+                </div>
+                <div class="action-row flex justify-between gap-2 mt-4">
+                    <a href="tel:7447482285" class="flex-1 text-center bg-green-500 text-white p-2 rounded-lg text-sm font-bold">Call</a>
+                    <a href="https://wa.me/7447482285" class="flex-1 text-center bg-green-600 text-white p-2 rounded-lg text-sm font-bold">WhatsApp</a>
+                    <button class="flex-1 text-center bg-blue-500 text-white p-2 rounded-lg text-sm font-bold">Video</button>
+                </div>
+            </div>
+
+            <div class="pa-card contact-card bg-white p-6 rounded-xl border-2 main-border shadow-md">
+                <div class="user-info flex items-center mb-4">
+                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Karan" class="w-16 h-16 rounded-full mr-4 border-2 border-purple-500">
+                    <div class="details">
+                        <h4 class="font-bold text-lg">Karan Mehta</h4>
+                        <p class="text-sm text-gray-500">Mental Health Volunteer | Age: 27</p>
+                    </div>
+                </div>
+                <div class="action-row flex justify-between gap-2 mt-4">
+                    <a href="tel:8668962556" class="flex-1 text-center bg-green-500 text-white p-2 rounded-lg text-sm font-bold">Call</a>
+                    <a href="https://wa.me/8668962556" class="flex-1 text-center bg-green-600 text-white p-2 rounded-lg text-sm font-bold">WhatsApp</a>
+                    <button class="flex-1 text-center bg-blue-500 text-white p-2 rounded-lg text-sm font-bold">Video</button>
+                </div>
+            </div>
+
         </div>
     </div>
-    
+</div>
 
 <!-- //wellness hub -->
     <div id="wellness-page" class="page hidden">
@@ -894,4 +898,5 @@
     </div>
     <script="app.js"></script>
 </body>
+
 </html>
