@@ -606,6 +606,32 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
+// --- WELLNESS STATE ---
+// These must be outside the functions to save your progress
+let breathingInterval = null; 
+let waterGlasses = 0; 
+
+// --- WELLNESS AUTO-TRIGGER ---
+// This listener handles the start/stop logic independently of your main showPage function
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+        const pageId = e.currentTarget.getAttribute('data-page');
+        
+        if (pageId === 'wellness-page') {
+            // Start the breathing timer ONLY if it's not already running
+            if (!breathingInterval) {
+                startBreathingLogic();
+            }
+        } else {
+            // Stop the timer when you leave wellness to keep the site fast
+            if (breathingInterval) {
+                clearInterval(breathingInterval);
+                breathingInterval = null;
+            }
+        }
+    });
+});
+
 // --- WELLNESS FUNCTIONS ---
 function startBreathingLogic() {
     const circle = document.getElementById('breathing-circle');
@@ -616,21 +642,24 @@ function startBreathingLogic() {
         if (circle.classList.contains('grow')) {
             circle.classList.remove('grow');
             circle.innerText = "Exhale";
-            instruction.innerText = "Slowly release your breath...";
+            if (instruction) instruction.innerText = "Slowly release your breath...";
         } else {
             circle.classList.add('grow');
             circle.innerText = "Inhale";
-            instruction.innerText = "Fill your lungs with air...";
+            if (instruction) instruction.innerText = "Fill your lungs with air...";
         }
-    }, 4000); // Toggles every 4 seconds to match the 4-7-8 breathing style
+    }, 4000); 
 }
 
 function addWater() {
     const dailyGoal = 8;
+    const progressBar = document.getElementById('water-progress');
+    const textCount = document.getElementById('water-count');
+
     if (waterGlasses < dailyGoal) {
         waterGlasses++;
         const progress = (waterGlasses / dailyGoal) * 100;
-        document.getElementById('water-progress').style.width = progress + "%";
-        document.getElementById('water-count').innerText = `${waterGlasses}/${dailyGoal}`;
+        if (progressBar) progressBar.style.width = progress + "%";
+        if (textCount) textCount.innerText = `${waterGlasses}/${dailyGoal}`;
     }
 }
