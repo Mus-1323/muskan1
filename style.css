@@ -306,58 +306,56 @@ textarea { width: 100%; border: 1px solid #ddd; border-radius: 10px; padding: 12
 .main-text {
     color: #6B46C1; /* Matches your brand purple */
 }
-/* --- Wellness Corner Styles --- */
+/* --- Mindful Breathing Component --- */
 
-/* --- Mindful Breathing Tool --- */
-
-/* Base state of the circle */
+/* Base state of the circle as defined in your HTML classes */
 #breathing-circle {
-    width: 130px;
-    height: 130px;
-    background-color: #a78bfa; /* Soft Purple */
-    border-radius: 50%;
+    /* Your HTML uses Tailwind for size, but we must define transitions here */
+    transition: transform 4000ms ease-in-out, background-color 4000ms ease-in-out !important;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    font-weight: bold;
-    margin: 0 auto;
-    /* This transition must match the 4000ms (4s) in your JavaScript */
-    transition: transform 4000ms ease-in-out, background-color 4000ms ease-in-out !important;
-    box-shadow: 0 0 20px rgba(167, 139, 250, 0.3);
+    cursor: default;
+    user-select: none;
+    box-shadow: 0 0 15px rgba(167, 139, 250, 0.3);
 }
 
-/* State when the JavaScript adds the 'grow' class */
-.grow {
-    transform: scale(1.5) !important;
-    background-color: #c084fc !important; /* Slightly lighter during inhale */
-    box-shadow: 0 0 40px rgba(167, 139, 250, 0.6) !important;
+/* The state added by JavaScript every 4 seconds */
+#breathing-circle.grow {
+    /* transform: scale is the 'muscle' that makes it grow */
+    transform: scale(1.4) !important;
+    background-color: #a78bfa !important; /* Matches your bg-purple-400 */
+    box-shadow: 0 0 30px rgba(167, 139, 250, 0.6);
 }
 
-/* --- Hydration Tracker --- */
+/* --- Hydration Tracker Component --- */
 
-/* Background bar */
-#water-progress-container {
-    width: 100%;
-    background-color: #e5e7eb;
-    border-radius: 999px;
-    height: 1rem;
-    overflow: hidden;
-}
-
-/* The actual moving progress bar */
+/* Ensures the progress bar flows smoothly when 'Add a Glass' is clicked */
 #water-progress {
-    height: 100%;
-    background-color: #3b82f6; /* Water Blue */
-    width: 0%; /* JavaScript updates this */
-    transition: width 0.5s ease-out;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    min-height: 100%;
 }
 
-/* Wellness Feature Cards */
-.wellness-card {
-    background: white;
-    padding: 24px;
-    border-radius: 12px;
-    border: 1px solid #f3e8ff;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+/* Optional: Add a subtle 'wave' effect to the water bar */
+#water-progress::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    animation: water-flow 2s infinite;
+}
+
+@keyframes water-flow {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* --- Layout Enhancements --- */
+.page {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.hidden {
+    display: none !important;
 }
