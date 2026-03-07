@@ -306,4 +306,38 @@ textarea { width: 100%; border: 1px solid #ddd; border-radius: 10px; padding: 12
 .main-text {
     color: #6B46C1; /* Matches your brand purple */
 }
+/* --- Wellness Corner Styles --- */
+
+/* The Breathing Animation */
+#breathing-circle {
+    transition: all 4000ms ease-in-out; /* Smooth transition for 4 seconds */
+    box-shadow: 0 0 20px rgba(167, 139, 250, 0.2);
+}
+
+/* This class is toggled by JavaScript to create the 'Inhale' effect */
+.grow {
+    transform: scale(1.4);
+    background-color: #a78bfa !important; /* A softer purple for the 'Inhale' state */
+    box-shadow: 0 0 40px rgba(167, 139, 250, 0.5) !important;
+}
+
+/* Hydration Progress Bar */
+#water-progress {
+    background: linear-gradient(90deg, #60a5fa, #3b82f6);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+}
+
+/* Card Styling for Wellness Features */
+.wellness-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid #f3e8ff; /* Light purple border */
+    transition: transform 0.2s ease;
+}
+
+.wellness-card:hover {
+    transform: translateY(-2px); /* Slight lift on hover */
+}
   
+
