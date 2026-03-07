@@ -308,36 +308,56 @@ textarea { width: 100%; border: 1px solid #ddd; border-radius: 10px; padding: 12
 }
 /* --- Wellness Corner Styles --- */
 
-/* The Breathing Animation */
+/* --- Mindful Breathing Tool --- */
+
+/* Base state of the circle */
 #breathing-circle {
-    transition: all 4000ms ease-in-out; /* Smooth transition for 4 seconds */
-    box-shadow: 0 0 20px rgba(167, 139, 250, 0.2);
+    width: 130px;
+    height: 130px;
+    background-color: #a78bfa; /* Soft Purple */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    margin: 0 auto;
+    /* This transition must match the 4000ms (4s) in your JavaScript */
+    transition: transform 4000ms ease-in-out, background-color 4000ms ease-in-out !important;
+    box-shadow: 0 0 20px rgba(167, 139, 250, 0.3);
 }
 
-/* This class is toggled by JavaScript to create the 'Inhale' effect */
+/* State when the JavaScript adds the 'grow' class */
 .grow {
-    transform: scale(1.4);
-    background-color: #a78bfa !important; /* A softer purple for the 'Inhale' state */
-    box-shadow: 0 0 40px rgba(167, 139, 250, 0.5) !important;
+    transform: scale(1.5) !important;
+    background-color: #c084fc !important; /* Slightly lighter during inhale */
+    box-shadow: 0 0 40px rgba(167, 139, 250, 0.6) !important;
 }
 
-/* Hydration Progress Bar */
+/* --- Hydration Tracker --- */
+
+/* Background bar */
+#water-progress-container {
+    width: 100%;
+    background-color: #e5e7eb;
+    border-radius: 999px;
+    height: 1rem;
+    overflow: hidden;
+}
+
+/* The actual moving progress bar */
 #water-progress {
-    background: linear-gradient(90deg, #60a5fa, #3b82f6);
-    box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+    height: 100%;
+    background-color: #3b82f6; /* Water Blue */
+    width: 0%; /* JavaScript updates this */
+    transition: width 0.5s ease-out;
 }
 
-/* Card Styling for Wellness Features */
+/* Wellness Feature Cards */
 .wellness-card {
-    background-color: white;
-    padding: 1.5rem;
-    border-radius: 0.75rem;
-    border: 1px solid #f3e8ff; /* Light purple border */
-    transition: transform 0.2s ease;
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid #f3e8ff;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
-
-.wellness-card:hover {
-    transform: translateY(-2px); /* Slight lift on hover */
-}
-  
-
