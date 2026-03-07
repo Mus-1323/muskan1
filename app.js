@@ -99,8 +99,10 @@
 
     document.addEventListener('DOMContentLoaded', () => {
         // FIX APPLIED: This selector was changed from '#sidebar .nav-link' to just '.nav-link'.
+        // const navLinks = document.querySelectorAll('.nav-link'); 
+        // const pages = document.querySelectorAll('#main-content .page');
         const navLinks = document.querySelectorAll('.nav-link'); 
-        const pages = document.querySelectorAll('#main-content .page');
+const pages = document.querySelectorAll('.page');
         const aiChatForm = document.getElementById('ai-chat-form');
         const chatContainer = document.getElementById('chat-container');
         const chatInput = document.getElementById('chat-input');
@@ -218,24 +220,32 @@
         //     }
         // }
 
-        function showPage(pageId) {
-    // 1. Hide every div that has the 'page' class
-    // This now correctly targets the new wrappers we added in the HTML
-    const allPages = document.querySelectorAll('.page');
-    allPages.forEach(p => p.classList.add('hidden'));
+       function showPage(pageId) {
+    // 1. Hide every div that has your 'page' class
+    pages.forEach(p => {
+        p.classList.add('hidden');
+    });
 
-    // 2. Show ONLY the container for the page you clicked
+    // 2. Show the specific ID you clicked
     const target = document.getElementById(pageId);
     if (target) {
         target.classList.remove('hidden');
     }
 
-    // 3. Reset scroll and handle mobile menu
+    // 3. Reset scroll and handle your sidebar menu
     document.getElementById('main-content').scrollTop = 0;
-    const navMenu = document.getElementById('nav-menu');
-    if (navMenu && window.innerWidth < 768) {
+    if (window.innerWidth < 768) {
         navMenu.classList.add('hidden');
     }
+
+    // 4. Keep your existing calendar logic
+    if (pageId === 'book-session-page') {
+        renderCalendar('calendar-days', currentDate);
+    }
+    if (pageId === 'daily-checkin-page') {
+        renderCalendar('streak-calendar-days', streakDate, checkedInDays);
+    }
+}
 
     // 4. Keep your calendar fixes from the original code
     if (pageId === 'book-session-page') {
@@ -246,15 +256,23 @@
     }
 }
 
-        // FIX APPLIED HERE: The new selector '.nav-link' is used.
+        // // FIX APPLIED HERE: The new selector '.nav-link' is used.
+        // navLinks.forEach(link => {
+        //     link.addEventListener('click', (e) => {
+        //         e.preventDefault();
+        //         const pageId = e.currentTarget.dataset.page;
+        //         showPage(pageId);
+        //     });
+        // });
         navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const pageId = e.currentTarget.dataset.page;
-                showPage(pageId);
-            });
-        });
-        
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const pageId = e.currentTarget.getAttribute('data-page'); 
+        if (pageId) {
+            showPage(pageId);
+        }
+    });
+});
         // Event listeners for quick navigation buttons
         startChatBtn.addEventListener('click', () => showPage('ai-chat-page'));
         bookSessionBtn.addEventListener('click', () => showPage('book-session-page'));
@@ -607,3 +625,4 @@ function createPost() {
     feed.insertAdjacentHTML('afterbegin', postHTML);
     document.getElementById('postInput').value = "";
 }
+
