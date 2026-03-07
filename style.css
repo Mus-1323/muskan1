@@ -285,4 +285,25 @@ textarea { width: 100%; border: 1px solid #ddd; border-radius: 10px; padding: 12
     gap: 20px;
     padding: 20px 0;
 }
+/* --- NEW ADDITIONS START HERE --- */
+
+/* 1. This is the 'Master Switch' that makes the JavaScript work */
+/* It forces the Peer Supporters to disappear on the Home and Admin pages */
+.page.hidden {
+    display: none !important;
+}
+
+/* 2. This organizes your 5 cards (Rahul, Priya, etc.) into a neat grid */
+/* This stops them from being one giant, messy vertical list */
+.supporter-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+/* 3. This makes the headers (Community Feed / Peer Supporters) look clean */
+.main-text {
+    color: #6B46C1; /* Matches your brand purple */
+}
   
