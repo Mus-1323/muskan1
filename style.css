@@ -306,3 +306,36 @@ textarea { width: 100%; border: 1px solid #ddd; border-radius: 10px; padding: 12
 .main-text {
     color: #6B46C1; /* Matches your brand purple */
 }
+/* --- Mindful Breathing --- */
+#breathing-circle {
+    /* Smooth transition over 4 seconds to match the JS timer */
+    transition: transform 4000ms ease-in-out, background-color 4000ms ease-in-out !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 15px rgba(167, 139, 250, 0.3);
+}
+
+/* The Inhale state */
+#breathing-circle.grow {
+    transform: scale(1.5) !important;
+    background-color: #a78bfa !important; /* Lighter purple */
+    box-shadow: 0 0 30px rgba(167, 139, 250, 0.5);
+}
+
+/* --- Hydration Tracker --- */
+#water-progress {
+    /* Smooth slide when adding a glass */
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    min-height: 100%;
+}
+
+/* Card hover effect */
+.bg-white.p-6.rounded-xl {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bg-white.p-6.rounded-xl:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
