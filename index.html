@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <body class="flex flex-col md:flex-row h-screen">
+<!-- //sidebar code  -->
+<aside id="sidebar" class="w-full md:w-64 md:h-full main-bg text-white p-6 shadow-lg flex flex-col items-center">
+    <div class="flex items-center justify-between w-full md:justify-center md:mb-8 mt-4">
+        <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gray-300 flex items-center justify-center border-2 border-white">
+            <svg class="w-10 h-10 md:w-12 md:h-12 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z">
+                </path>
+            </svg>
+        </div>
+        <button id="toggle-menu" class="md:hidden p-2 rounded-md focus:outline-none">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+    </div>
+    <nav id="nav-menu" class="flex-1 w-full hidden md:block">
+        <ul class="space-y-4">
+            <li><a href="#" class="nav-link flex items-center p-2 rounded-lg hover:bg-gray-700/50" data-page="home-page">
+                <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                    </path>
+                </svg>
+                Home
+            </a></li>
+            <li><a href="#" class="nav-link flex items-center p-2 rounded-lg hover:bg-gray-700/50" data-page="ai-chat-page">
+                <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
+                    </path>
+                </svg>
+                AI Chat
+            </a></li>
+            <li><a href="#" class="nav-link flex items-center p-2 rounded-lg hover:bg-gray-700/50" data-page="book-session-page">
+                <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M8 7V3m8 4V3m-9 8h.01M11 11h.01M14 11h.01M7 16h.01M10 16h.01M13 16h.01M5 21h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z">
+                    </path>
+                </svg>
+                Book Session
+            </a></li>
+            <!-- NEW SCREENING/TESTING LINK -->
+            <li><a href="#" class="nav-link flex items-center p-2 rounded-lg hover:bg-gray-700/50" data-page="testing-page">
+                <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                Mental Health Screening
+            </a></li>
+            <li><a href="#" class="nav-link flex items-center p-2 rounded-lg hover:bg-gray-700/50" data-page="resource-hub-page">
+                <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M12 6.253v13m0-13C10.832 5.414 9.688 5 8.5 5S6.168 5.414 5 6.253v13C6.168 18.414 7.312 18 8.5 18s2.332.414 3.5 1.253m0-13C13.168 5.414 14.312 5 15.5 5s2.332.414 3.5 1.253v13C17.668 18.414 16.524 18 15.5 18s-2.332.414-3.5 1.253">
+                    </path>
+                </svg>
+                Resource Hub
+            </a></li>
+            <li><a href="#" class="nav-link flex items-center p-2 rounded-lg hover:bg-gray-700/50" data-page="peer-forum-page">
+                <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M17 20h-1a1 1 0 01-1-1v-2a1 1 0 011-1h1a1 1 0 011 1v2a1 1 0 01-1 1zm-8 0h-1a1 1 0 01-1-1v-2a1 1 0 011-1h1a1 1 0 011 1v2a1 1 0 01-1 1zm0 0h-1a1 1 0 01-1-1v-2a1 1 0 011-1h1a1 1 0 011 1v2a1 1 0 01-1 1zm8 0h-1a1 1 0 01-1-1v-2a1 1 0 011-1h1a1 1 0 011 1v2a1 1 0 01-1 1zM7 16V9a2 2 0 012-2h6a2 2 0 012 2v7">
+                    </path>
+                </svg>
+                Peer Forum
+            </a></li>
+            <li><a href="#" class="nav-link flex items-center p-2 rounded-lg hover:bg-gray-700/50" data-page="wellness-page">
+                <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                    </path>
+                </svg>
+                Wellness
+            </a></li>
+            <li><a href="#" class="nav-link flex items-center p-2 rounded-lg hover:bg-gray-700/50" data-page="daily-checkin-page">
+                <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                Daily Check-in
+            </a></li>
+            <!-- NEW NAVIGATION LINK -->
+            <li><a href="#" class="nav-link flex items-center p-2 rounded-lg hover:bg-gray-700/50" data-page="emergency-page">
+                <svg class="w-6 h-6 mr-3 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.318 18c-.77 1.333.192 3 1.732 3z"></path>
+                </svg>
+                Emergency
+            </a></li>
+            <li><a href="#" class="nav-link flex items-center p-2 rounded-lg hover:bg-gray-700/50" data-page="login-page">
+                <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1">
+                    </path>
+                </svg>
+                Login/Signup
+            </a></li>
+        </ul>
+    </nav>
+    <div id="admin-link" class="mt-auto hidden md:block">
+        <a href="#" class="nav-link flex items-center p-2 rounded-lg hover:bg-gray-700/50" data-page="admin-dashboard-page">
+            <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.527.292 1.096.474 1.727.509a1.724 1.724 0 002.572-1.065z">
+                </path>
+            </svg>
+            Admin Dashboard
+        </a>
+    </div>
+</aside>
+
+<main id="main-content" class="flex-1 p-8 overflow-y-auto">
+
+    <!-- //home page  -->
+    <div id="home-page" class="page">
+        <h1 class="text-4xl font-bold main-text mb-8">Welcome to CampusCare</h1>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div class="bg-white p-6 rounded-xl card-shadow border-2 main-border">
+                <h3 class="text-2xl font-semibold main-text mb-2">AI-guided Chat</h3>
+                <p class="text-gray-600 mb-4">Get quick tips and support from our AI assistant.</p>
+                <button id="start-chat-btn" class="main-bg text-white px-6 py-3 rounded-lg shadow-md hover:bg-opacity-90">Start Chat</button>
+            </div>
+            <div class="bg-white p-6 rounded-xl card-shadow border-2 main-border">
+                <h3 class="text-2xl font-semibold main-text mb-2">Book a Session</h3>
+                <p class="text-gray-600 mb-4">Schedule a confidential session with a counselor.</p>
+                <button id="book-session-btn" class="main-bg text-white px-6 py-3 rounded-lg shadow-md hover:bg-opacity-90">Book Now</button>
+            </div>
+            <div class="bg-white p-6 rounded-xl card-shadow border-2 main-border">
+                <h3 class="text-2xl font-semibold main-text mb-2">Resource Hub</h3>
+                <p class="text-gray-600 mb-4">Explore articles, videos, and guides for well-being.</p>
+                <button id="explore-resources-btn" class="main-bg text-white px-6 py-3 rounded-lg shadow-md hover:bg-opacity-90">Explore</button>
+            </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl card-shadow border-2 main-border mb-12">
+            <h3 class="text-2xl font-semibold main-text mb-4">Daily Mood Check-In</h3>
+            <p class="text-gray-600 mb-4">How are you feeling today?</p>
+            <div class="flex space-x-4">
+                <button aria-label="Feeling happy" class="bg-gray-100 p-4 rounded-full text-4xl hover:bg-gray-200 checkin-emoji" data-emoji="😊">😊</button>
+                <button aria-label="Feeling neutral" class="bg-gray-100 p-4 rounded-full text-4xl hover:bg-gray-200 checkin-emoji" data-emoji="😐">😐</button>
+                <button aria-label="Feeling sad" class="bg-gray-100 p-4 rounded-full text-4xl hover:bg-gray-200 checkin-emoji" data-emoji="😔">😔</button>
+            </div>
+            <div class="mt-6 text-center">
+                <p class="text-gray-600 mb-2">Want to track your mood over time?</p>
+                <button id="checkin-now-btn" class="main-bg text-white px-6 py-3 rounded-lg shadow-md hover:bg-opacity-90">Check-in Now</button>
+            </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl card-shadow border-2 main-border">
+            <p class="text-xl italic text-gray-700">"The greatest wealth is health."</p>
+            <p class="text-right text-gray-500">- Virgil</p>
+        </div>
+        <div class="mt-8">
+            <button id="account-btn" class="bg-gray-200 text-gray-700 px-6 py-3 rounded-lg shadow-md hover:bg-gray-300">
+                <svg class="w-5 h-5 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z">
+                    </path>
+                </svg>
+                Account
+            </button>
+        </div>
+    </div>
+    <!-- // aI chatbot  -->
+
+    <div id="ai-chat-page" class="page hidden flex flex-col h-full">
+        <h1 class="text-4xl font-bold main-text mb-6">AI-guided Chat</h1>
+        <div id="chat-container" class="flex-1 bg-white p-6 rounded-xl card-shadow border-2 main-border mb-4 overflow-y-auto chat-container">
+            <!-- Initial Message has the new classes applied -->
+            <div class="flex justify-start mb-5 chat-entry-animation">
+                <div class="main-bg text-white p-3 rounded-lg max-w-xl">
+                    Hello, I am CampusCare's AI assistant. I'm here to provide support and information. How are you feeling today?
+                </div>
+            </div>
+        </div>
+        <form id="ai-chat-form" class="flex">
+            <input id="chat-input" type="text"
+                   class="flex-1 p-3 border-2 main-border rounded-l-lg focus:outline-none"
+                   placeholder="Type your message...">
+            <button type="button" id="voice-input-button" class="bg-gray-200 text-gray-700 px-4 py-3 rounded-none hover:bg-gray-300 transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                </svg>
+            </button>
+            <button type="submit"
+                    class="main-bg text-white px-6 py-3 rounded-r-lg hover:bg-opacity-90">Send</button>
+        </form>
+        <button id="emergency-help-button" class="emergency-button mt-4 p-4 rounded-xl shadow-md font-bold">Emergency Help</button>
+    </div>
+    <!-- //daily check in  -->
+
+    <div id="daily-checkin-page" class="page hidden">
+        <h1 class="text-4xl font-bold main-text mb-6">Daily Mood Check-In</h1>
+        <div class="bg-white p-6 rounded-xl card-shadow border-2 main-border mb-8">
+            <p class="text-gray-600 mb-4">How are you feeling today? Tap to check in.</p>
+            <div class="flex space-x-4 mb-4">
+                <button aria-label="Feeling happy" class="bg-gray-100 p-4 rounded-full text-4xl hover:bg-gray-200 checkin-emoji" data-emoji="😊">😊</button>
+                <button aria-label="Feeling neutral" class="bg-gray-100 p-4 rounded-full text-4xl hover:bg-gray-200 checkin-emoji" data-emoji="😐">😐</button>
+                <button aria-label="Feeling sad" class="bg-gray-100 p-4 rounded-full text-4xl hover:bg-gray-200 checkin-emoji" data-emoji="😔">😔</button>
+                <button aria-label="Feeling angry" class="bg-gray-100 p-4 rounded-full text-4xl hover:bg-gray-200 checkin-emoji" data-emoji="😠">😠</button>
+                <button aria-label="Feeling calm" class="bg-gray-100 p-4 rounded-full text-4xl hover:bg-gray-200 checkin-emoji" data-emoji="😌">😌</button>
+            </div>
+            <textarea id="checkin-note" class="w-full p-3 border main-border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" rows="3" placeholder="Describe your feeling further and explain the reason behind it"></textarea>
+            <button id="submit-checkin-btn" class="main-bg text-white px-6 py-3 rounded-lg shadow-md hover:bg-opacity-90 mt-4">Submit Check-in</button>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl card-shadow border-2 main-border">
+            <h2 class="text-2xl font-semibold main-text mb-4">Your Daily Streak</h2>
+            <p class="text-gray-600 mb-4">Keep your streak going to build a habit of self-reflection!</p>
+            <div class="flex items-center justify-between mb-4">
+                <button id="streak-prev-month" class="main-bg text-white px-4 py-2 rounded-lg hover:bg-opacity-90">&lt;</button>
+                <h3 id="streak-current-month-year" class="text-xl font-semibold"></h3>
+                <button id="streak-next-month" class="main-bg text-white px-4 py-2 rounded-lg hover:bg-opacity-90">&gt;</button>
+            </div>
+            <div class="calendar-grid text-sm text-gray-500 mb-2">
+                <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+            </div>
+            <div id="streak-calendar-days" class="calendar-grid"></div>
+        </div>
+    </div>
+
+    <!-- MENTAL HEALTH SCREENING DASHBOARD -->
+    <div id="testing-page" class="page hidden">
+        <h1 class="text-4xl font-bold main-text mb-6">Mental Health Screening</h1>
+        <p class="text-gray-600 mb-8">Choose a clinically validated screening tool below. The results offer a severity assessment but are **NOT a substitute for professional diagnosis.**</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- PHQ-9 Card -->
+            <div class="bg-white p-6 rounded-xl card-shadow border-2 main-border flex flex-col justify-between">
+                <div>
+                    <h2 class="text-2xl font-bold text-indigo-600 mb-3">PHQ-9 (Depression)</h2>
+                    <p class="text-gray-600 mb-4">The Patient Health Questionnaire 9 is a powerful tool for screening, diagnosing, and monitoring the severity of depression.</p>
+                    <p class="text-sm text-gray-500 mb-6">Questions: 9 | Scoring: 0 - 27</p>
+                </div>
+                <!-- Link to PHQ-9 test page -->
+                <!-- The 'nav-link' class ensures this button is now clickable by the general selector. -->
+                <a href="#" data-page="phq9-test-page" class="main-bg text-white px-6 py-3 rounded-lg shadow-md hover:bg-opacity-90 w-full text-center nav-link">
+                    Start Depression Test
+                </a>
+            </div>
+
+            <!-- GAD-7 Card -->
+            <div class="bg-white p-6 rounded-xl card-shadow border-2 main-border flex flex-col justify-between">
+                <div>
+                    <h2 class="text-2xl font-bold text-indigo-600 mb-3">GAD-7 (Anxiety)</h2>
+                    <p class="text-gray-600 mb-4">The Generalized Anxiety Disorder 7-item scale is used to screen for and measure the severity of generalized anxiety disorder.</p>
+                    <p class="text-sm text-gray-500 mb-6">Questions: 7 | Scoring: 0 - 21</p>
+                </div>
+                <!-- Link to GAD-7 test page -->
+                <!-- The 'nav-link' class ensures this button is now clickable by the general selector. -->
+                <a href="#" data-page="gad7-test-page" class="main-bg text-white px-6 py-3 rounded-lg shadow-md hover:bg-opacity-90 w-full text-center nav-link">
+                    Start Anxiety Test
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- DEDICATED PHQ-9 TEST PAGE (Content is here) -->
+    <div id="phq9-test-page" class="page hidden">
+        <h1 class="text-4xl font-bold text-indigo-600 mb-4">PHQ-9 Depression Test</h1>
+        <p class="text-gray-600 mb-8">Please rate how often you have been bothered by the following problems over the **last 2 weeks**.</p>
+        
+        <form id="phq9-form" class="space-y-6">
+            <div class="question-card">
+                <p class="font-bold text-gray-800 mb-3">1. Little interest or pleasure in doing things</p>
+                <div>
+                    <input type="radio" id="phq9_q1_0" name="phq9_q1" value="0" class="hidden" required><label for="phq9_q1_0" class="option-label">Not at all (0)</label>
+                    <input type="radio" id="phq9_q1_1" name="phq9_q1" value="1" class="hidden"><label for="phq9_q1_1" class="option-label">Several days (1)</label>
+                    <input type="radio" id="phq9_q1_2" name="phq9_q1" value="2" class="hidden"><label for="phq9_q1_2" class="option-label">More than half the days (2)</label>
+                    <input type="radio" id="phq9_q1_3" name="phq9_q1" value="3" class="hidden"><label for="phq9_q1_3" class="option-label">Nearly every day (3)</label>
+                </div>
+            </div>
+            <div class="question-card">
+                <p class="font-bold text-gray-800 mb-3">2. Feeling down, depressed, or hopeless</p>
+                <div>
+                    <input type="radio" id="phq9_q2_0" name="phq9_q2" value="0" class="hidden" required><label for="phq9_q2_0" class="option-label">Not at all (0)</label>
+                    <input type="radio" id="phq9_q2_1" name="phq9_q2" value="1" class="hidden"><label for="phq9_q2_1" class="option-label">Several days (1)</label>
+                    <input type="radio" id="phq9_q2_2" name="phq9_q2" value="2" class="hidden"><label for="phq9_q2_2" class="option-label">More than half the days (2)</label>
+                    <input type="radio" id="phq9_q2_3" name="phq9_q2" value="3" class="hidden"><label for="phq9_q2_3" class="option-label">Nearly every day (3)</label>
+                </div>
+            </div>
+            <div class="question-card">
+                <p class="font-bold text-gray-800 mb-3">3. Trouble falling or staying asleep, or sleeping too much</p>
+                <div>
+                    <input type="radio" id="phq9_q3_0" name="phq9_q3" value="0" class="hidden" required><label for="phq9_q3_0" class="option-label">Not at all (0)</label>
+                    <input type="radio" id="phq9_q3_1" name="phq9_q3" value="1" class="hidden"><label for="phq9_q3_1" class="option-label">Several days (1)</label>
+                    <input type="radio" id="phq9_q3_2" name="phq9_q3" value="2" class="hidden"><label for="phq9_q3_2" class="option-label">More than half the days (2)</label>
+                    <input type="radio" id="phq9_q3_3" name="phq9_q3" value="3" class="hidden"><label for="phq9_q3_3" class="option-label">Nearly every day (3)</label>
+                </div>
+            </div>
+            <div class="question-card">
+                <p class="font-bold text-gray-800 mb-3">4. Feeling tired or having little energy</p>
+                <div>
+                    <input type="radio" id="phq9_q4_0" name="phq9_q4" value="0" class="hidden" required><label for="phq9_q4_0" class="option-label">Not at all (0)</label>
+                    <input type="radio" id="phq9_q4_1" name="phq9_q4" value="1" class="hidden"><label for="phq9_q4_1" class="option-label">Several days (1)</label>
+                    <input type="radio" id="phq9_q4_2" name="phq9_q4" value="2" class="hidden"><label for="phq9_q4_2" class="option-label">More than half the days (2)</label>
+                    <input type="radio" id="phq9_q4_3" name="phq9_q4" value="3" class="hidden"><label for="phq9_q4_3" class="option-label">Nearly every day (3)</label>
+                </div>
+            </div>
+            <div class="question-card">
+                <p class="font-bold text-gray-800 mb-3">5. Poor appetite or overeating</p>
+                <div>
+                    <input type="radio" id="phq9_q5_0" name="phq9_q5" value="0" class="hidden" required><label for="phq9_q5_0" class="option-label">Not at all (0)</label>
+                    <input type="radio" id="phq9_q5_1" name="phq9_q5" value="1" class="hidden"><label for="phq9_q5_1" class="option-label">Several days (1)</label>
+                    <input type="radio" id="phq9_q5_2" name="phq9_q5" value="2" class="hidden"><label for="phq9_q5_2" class="option-label">More than half the days (2)</label>
+                    <input type="radio" id="phq9_q5_3" name="phq9_q5" value="3" class="hidden"><label for="phq9_q5_3" class="option-label">Nearly every day (3)</label>
+                </div>
+            </div>
+            <div class="question-card">
+                <p class="font-bold text-gray-800 mb-3">6. Feeling bad about yourself - or that you are a failure or have let yourself or your family down</p>
+                <div>
+                    <input type="radio" id="phq9_q6_0" name="phq9_q6" value="0" class="hidden" required><label for="phq9_q6_0" class="option-label">Not at all (0)</label>
+                    <input type="radio" id="phq9_q6_1" name="phq9_q6" value="1" class="hidden"><label for="phq9_q6_1" class="option-label">Several days (1)</label>
+                    <input type="radio" id="phq9_q6_2" name="phq9_q6" value="2" class="hidden"><label for="phq9_q6_2" class="option-label">More than half the days (2)</label>
+                    <input type="radio" id="phq9_q6_3" name="phq9_q6" value="3" class="hidden"><label for="phq9_q6_3" class="option-label">Nearly every day (3)</label>
+                </div>
+            </div>
+            <div class="question-card">
+                <p class="font-bold text-gray-800 mb-3">7. Trouble concentrating on things, such as reading the newspaper or watching television</p>
+                <div>
+                    <input type="radio" id="phq9_q7_0" name="phq9_q7" value="0" class="hidden" required><label for="phq9_q7_0" class="option-label">Not at all (0)</label>
+                    <input type="radio" id="phq9_q7_1" name="phq9_q7" value="1" class="hidden"><label for="phq9_q7_1" class="option-label">Several days (1)</label>
+                    <input type="radio" id="phq9_q7_2" name="phq9_q7" value="2" class="hidden"><label for="phq9_q7_2" class="option-label">More than half the days (2)</label>
+                    <input type="radio" id="phq9_q7_3" name="phq9_q7" value="3" class="hidden"><label for="phq9_q7_3" class="option-label">Nearly every day (3)</label>
+                </div>
+            </div>
+            <div class="question-card">
+                <p class="font-bold text-gray-800 mb-3">8. Moving or speaking so slowly that other people could have noticed. Or the opposite—being so fidgety or restless that you have been moving around a lot more than usual</p>
+                <div>
+                    <input type="radio" id="phq9_q8_0" name="phq9_q8" value="0" class="hidden" required><label for="phq9_q8_0" class="option-label">Not at all (0)</label>
+                    <input type="radio" id="phq9_q8_1" name="phq9_q8" value="1" class="hidden"><label for="phq9_q8_1" class="option-label">Several days (1)</label>
+                    <input type="radio" id="phq9_q8_2" name="phq9_q8" value="2" class="hidden"><label for="phq9_q8_2" class="option-label">More than half the days (2)</label>
+                    <input type="radio" id="phq9_q8_3" name="phq9_q8" value="3" class="hidden"><label for="phq9_q8_3" class="option-label">Nearly every day (3)</label>
+                </div>
+            </div>
+            <div class="question-card">
+                <p class="font-bold text-gray-800 mb-3">9. Thoughts that you would be better off dead or of hurting yourself in some way</p>
+                <div>
+                    <input type="radio" id="phq9_q9_0" name="phq9_q9" value="0" class="hidden" required><label for="phq9_q9_0" class="option-label">Not at all (0)</label>
+                    <input type="radio" id="phq9_q9_1" name="phq9_q9" value="1" class="hidden"><label for="phq9_q9_1" class="option-label">Several days (1)</label>
+                    <input type="radio" id="phq9_q9_2" name="phq9_q9" value="2" class="hidden"><label for="phq9_q9_2" class="option-label">More than half the days (2)</label>
+                    <input type="radio" id="phq9_q9_3" name="phq9_q9" value="3" class="hidden"><label for="phq9_q9_3" class="option-label">Nearly every day (3)</label>
+                </div>
+            </div>
+            
+            <div class="mt-8">
+                <button type="submit" class="main-bg text-white px-8 py-4 rounded-xl shadow-lg hover:bg-opacity-90 w-full text-xl font-bold">Submit PHQ-9 Test</button>
+            </div>
+            <div id="phq9-result" class="mt-4 p-6 rounded-xl bg-gray-100 text-gray-700 font-medium hidden"></div>
+        </form>
+    </div>
+
+    <!-- DEDICATED GAD-7 TEST PAGE (Content is here) -->
+    <div id="gad7-test-page" class="page hidden">
+        <h1 class="text-4xl font-bold text-indigo-600 mb-4">GAD-7 Anxiety Test</h1>
+        <p class="text-gray-600 mb-8">Please rate how often you have been bothered by the following problems over the last 2 weeks.</p>
+        
+        <form id="gad7-form" class="space-y-6">
+            <div class="question-card">
+                <p class="font-bold text-gray-800 mb-3">1. Feeling nervous, anxious or on edge</p>
+                <div>
+                    <input type="radio" id="gad7_q1_0" name="gad7_q1" value="0" class="hidden" required><label for="gad7_q1_0" class="option-label">Not at all (0)</label>
+                    <input type="radio" id="gad7_q1_1" name="gad7_q1" value="1" class="hidden"><label for="gad7_q1_1" class="option-label">Several days (1)</label>
+                    <input type="radio" id="gad7_q1_2" name="gad7_q1" value="2" class="hidden"><label for="gad7_q1_2" class="option-label">More than half the days (2)</label>
+                    <input type="radio" id="gad7_q1_3" name="gad7_q1" value="3" class="hidden"><label for="gad7_q1_3" class="option-label">Nearly every day (3)</label>
+                </div>
+            </div>
+            <div class="question-card">
+                <p class="font-bold text-gray-800 mb-3">2. Not being able to stop or control worrying</p>
+                <div>
+                    <input type="radio" id="gad7_q2_0" name="gad7_q2" value="0" class="hidden" required><label for="gad7_q2_0" class="option-label">Not at all (0)</label>
+                    <input type="radio" id="gad7_q2_1" name="gad7_q2" value="1" class="hidden"><label for="gad7_q2_1" class="option-label">Several days (1)</label>
+                    <input type="radio" id="gad7_q2_2" name="gad7_q2" value="2" class="hidden"><label for="gad7_q2_2" class="option-label">More than half the days (2)</label>
+                    <input type="radio" id="gad7_q2_3" name="gad7_q2" value="3" class="hidden"><label for="gad7_q2_3" class="option-label">Nearly every day (3)</label>
+                </div>
+            </div>
+            <div class="question-card">
+                <p class="font-bold text-gray-800 mb-3">3. Worrying too much about different things</p>
+                <div>
+                    <input type="radio" id="gad7_q3_0" name="gad7_q3" value="0" class="hidden" required><label for="gad7_q3_0" class="option-label">Not at all (0)</label>
+                    <input type="radio" id="gad7_q3_1" name="gad7_q3" value="1" class="hidden"><label for="gad7_q3_1" class="option-label">Several days (1)</label>
+                    <input type="radio" id="gad7_q3_2" name="gad7_q3" value="2" class="hidden"><label for="gad7_q3_2" class="option-label">More than half the days (2)</label>
+                    <input type="radio" id="gad7_q3_3" name="gad7_q3" value="3" class="hidden"><label for="gad7_q3_3" class="option-label">Nearly every day (3)</label>
+                </div>
+            </div>
+            <div class="question-card">
+                <p class="font-bold text-gray-800 mb-3">4. Trouble relaxing</p>
+                <div>
+                    <input type="radio" id="gad7_q4_0" name="gad7_q4" value="0" class="hidden" required><label for="gad7_q4_0" class="option-label">Not at all (0)</label>
+                    <input type="radio" id="gad7_q4_1" name="gad7_q4" value="1" class="hidden"><label for="gad7_q4_1" class="option-label">Several days (1)</label>
+                    <input type="radio" id="gad7_q4_2" name="gad7_q4" value="2" class="hidden"><label for="gad7_q4_2" class="option-label">More than half the days (2)</label>
+                    <input type="radio" id="gad7_q4_3" name="gad7_q4" value="3" class="hidden"><label for="gad7_q4_3" class="option-label">Nearly every day (3)</label>
+                </div>
+            </div>
+            <div class="question-card">
+                <p class="font-bold text-gray-800 mb-3">5. Being so restless that it is hard to sit still</p>
+                <div>
+                    <input type="radio" id="gad7_q5_0" name="gad7_q5" value="0" class="hidden" required><label for="gad7_q5_0" class="option-label">Not at all (0)</label>
+                    <input type="radio" id="gad7_q5_1" name="gad7_q5" value="1" class="hidden"><label for="gad7_q5_1" class="option-label">Several days (1)</label>
+                    <input type="radio" id="gad7_q5_2" name="gad7_q5" value="2" class="hidden"><label for="gad7_q5_2" class="option-label">More than half the days (2)</label>
+                    <input type="radio" id="gad7_q5_3" name="gad7_q5" value="3" class="hidden"><label for="gad7_q5_3" class="option-label">Nearly every day (3)</label>
+                </div>
+            </div>
+            <div class="question-card">
+                <p class="font-bold text-gray-800 mb-3">6. Becoming easily annoyed or irritated</p>
+                <div>
+                    <input type="radio" id="gad7_q6_0" name="gad7_q6" value="0" class="hidden" required><label for="gad7_q6_0" class="option-label">Not at all (0)</label>
+                    <input type="radio" id="gad7_q6_1" name="gad7_q6" value="1" class="hidden"><label for="gad7_q6_1" class="option-label">Several days (1)</label>
+                    <input type="radio" id="gad7_q6_2" name="gad7_q6" value="2" class="hidden"><label for="gad7_q6_2" class="option-label">More than half the days (2)</label>
+                    <input type="radio" id="gad7_q6_3" name="gad7_q6" value="3" class="hidden"><label for="gad7_q6_3" class="option-label">Nearly every day (3)</label>
+                </div>
+            </div>
+            <div class="question-card">
+                <p class="font-bold text-gray-800 mb-3">7. Feeling afraid as if something awful might happen</p>
+                <div>
+                    <input type="radio" id="gad7_q7_0" name="gad7_q7" value="0" class="hidden" required><label for="gad7_q7_0" class="option-label">Not at all (0)</label>
+                    <input type="radio" id="gad7_q7_1" name="gad7_q7" value="1" class="hidden"><label for="gad7_q7_1" class="option-label">Several days (1)</label>
+                    <input type="radio" id="gad7_q7_2" name="gad7_q7" value="2" class="hidden"><label for="gad7_q7_2" class="option-label">More than half the days (2)</label>
+                    <input type="radio" id="gad7_q7_3" name="gad7_q7" value="3" class="hidden"><label for="gad7_q7_3" class="option-label">Nearly every day (3)</label>
+                </div>
+            </div>
+            
+            <div class="mt-8">
+                <button type="submit" class="main-bg text-white px-8 py-4 rounded-xl shadow-lg hover:bg-opacity-90 w-full text-xl font-bold">Submit GAD-7 Test</button>
+            </div>
+            <div id="gad7-result" class="mt-4 p-6 rounded-xl bg-gray-100 text-gray-700 font-medium hidden"></div>
+        </form>
+    </div>
+
+<!-- //emergency page -->
+    <div id="emergency-page" class="page hidden">
+        <h1 class="text-4xl font-bold text-red-500 mb-8">Crisis & Emergency Helplines (India)</h1>
+        <div class="space-y-8">
+            
+            <!-- Vandrevala Foundation -->
+            <div class="bg-white p-6 rounded-xl card-shadow border-2 border-gray-200">
+                <h2 class="text-2xl font-semibold text-red-600 mb-3">Vandrevala Foundation</h2>
+                <p class="text-gray-700 mb-4">
+                    All counsellors are postgraduate in psychology and full-time employees. They offer multilingual support in practically all Indian languages.
+                </p>
+                <p class="text-sm text-gray-500 mb-4">Hours: 24x7. Facilities: Tele counselling (with call back), email, chat, webforms, social media, and soon WhatsApp.</p>
+                <a href="tel:18602662345" class="emergency-button p-3 rounded-lg shadow-lg w-full block text-center font-bold mb-2">
+                    Call: 1860 266 2345
+                </a>
+                <a href="tel:9999666555" class="emergency-button p-3 rounded-lg shadow-lg w-full block text-center font-bold">
+                    Call: 9999 666 555
+                </a>
+            </div>
+
+            <!-- Sneha Foundation India -->
+            <div class="bg-white p-6 rounded-xl card-shadow border-2 border-gray-200">
+                <h2 class="text-2xl font-semibold text-red-600 mb-3">Sneha Foundation India</h2>
+                <p class="text-gray-700 mb-4">
+                    Offers unconditional emotional support to those who are depressed, desperate, and suicidal. They are committed to ensuring you don't have to feel alone.
+                </p>
+                <p class="text-sm text-gray-500 mb-4">Hours: 24x7 helpline.</p>
+                <a href="tel:+914424640050" class="emergency-button p-3 rounded-lg shadow-lg w-full block text-center font-bold">
+                    Call: 9144 2464 0050
+                </a>
+            </div>
+
+            <!-- Tata Institute of Social Sciences (TISS) iCall -->
+            <div class="bg-white p-6 rounded-xl card-shadow border-2 border-gray-200">
+                <h2 class="text-2xl font-semibold text-red-600 mb-3">TISS iCall</h2>
+                <p class="text-gray-700 mb-4">
+                    Provides telephone-based counselling from the Tata Institute of Social Sciences.
+                </p>
+                <p class="text-sm text-gray-500 mb-4">Telephone Counselling Hours: Monday to Saturday, 8 AM to 10 PM.</p>
+                <a href="tel:02225521111" class="emergency-button p-3 rounded-lg shadow-lg w-full block text-center font-bold">
+                    Call: 022-25521111
+                </a>
+            </div>
+
+            <!-- Voice That Cares -->
+            <div class="bg-white p-6 rounded-xl card-shadow border-2 border-gray-200">
+                <h2 class="text-2xl font-semibold text-red-600 mb-3">Voice That Cares</h2>
+                <p class="text-gray-700 mb-4">
+                    A free public helpline offering psychosocial counselling support for mental health matters including anxiety, exam stress, loneliness, and initial support for suicidal tendencies.
+                </p>
+                <a href="tel:8448844845" class="emergency-button p-3 rounded-lg shadow-lg w-full block text-center font-bold">
+                    Call: 8448 8448 45
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- END UPDATED EMERGENCY PAGE -->
+
+    <div id="message-box" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white p-8 rounded-xl card-shadow max-w-md w-full border-2 main-border">
+            <h2 class="text-2xl font-bold mb-4 main-text">Crisis Support</h2>
+            <p class="text-gray-700 mb-6">If you are in immediate danger or a crisis situation, please contact one of the following emergency services:</p>
+            <ul class="list-disc list-inside space-y-2 mb-6 text-gray-600">
+                <li><b>Kiran Mental Health Helpline (India):</b> 1800-599-0019</li>
+                <li><b>AASRA Helpline (India):</b> +91-9820466726</li>
+            </ul>
+            <div class="flex justify-end">
+                <button id="close-message-box"
+                        class="main-bg text-white px-6 py-3 rounded-lg shadow-md hover:bg-opacity-90">Close</button>
+            </div>
+        </div>
+    </div>
+<!-- //book session -->
+    <div id="book-session-page" class="page hidden">
+        <h1 class="text-4xl font-bold main-text mb-6">Book a Session</h1>
+        <div class="bg-white p-8 rounded-xl card-shadow border-2 main-border flex flex-col md:flex-row gap-8">
+            <div class="flex-1">
+                <h2 class="text-xl font-semibold main-text mb-4">Book a New Session</h2>
+                <div class="flex items-center justify-between mb-4">
+                    <button id="prev-month" class="main-bg text-white px-4 py-2 rounded-lg hover:bg-opacity-90">&lt;</button>
+                    <h3 id="current-month-year" class="text-xl font-semibold"></h3>
+                    <button id="next-month" class="main-bg text-white px-4 py-2 rounded-lg hover:bg-opacity-90">&gt;</button>
+                </div>
+                <div class="calendar-grid text-sm text-gray-500 mb-2">
+                    <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+                </div>
+                <div id="calendar-days" class="calendar-grid"></div>
+                <form id="booking-form" class="mt-8">
+                    <div class="mb-4">
+                        <label for="booking-date" class="block text-gray-700 font-medium mb-1">Selected Date:</label>
+                        <input type="text" id="booking-date" readonly class="w-full p-2 border main-border rounded-lg bg-gray-100">
+                    </div>
+                    <div class="mb-4">
+                        <label for="booking-time" class="block text-gray-700 font-medium mb-1">Time Slot:</label>
+                        <select id="booking-time" class="w-full p-2 border main-border rounded-lg">
+                            <option value="">Select a time</option>
+                            <option value="09:00">09:00 AM</option>
+                            <option value="10:00">10:00 AM</option>
+                            <option value="11:00">11:00 AM</option>
+                            <option value="12:00">12:00 PM</option>
+                            <option value="14:00">02:00 PM</option>
+                            <option value="15:00">03:00 PM</option>
+                            <option value="16:00">04:00 PM</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label for="booking-note" class="block text-gray-700 font-medium mb-1">Reason for Session (optional):</label>
+                        <textarea id="booking-note" rows="3" class="w-full p-2 border main-border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
+                    </div>
+                    <button type="submit" id="confirm-booking-btn" class="main-bg text-white w-full p-3 rounded-lg hover:bg-opacity-90">Confirm Booking</button>
+                </form>
+            </div>
+            <div class="flex-1">
+                <h2 class="text-xl font-semibold main-text mb-4">Your Upcoming Sessions</h2>
+                <div id="upcoming-sessions" class="space-y-4">
+                    <p class="text-gray-500 italic">No upcoming sessions. Book your first one!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- //login page  -->
+    <div id="login-page" class="page hidden flex flex-col items-center justify-center h-full">
+        <div class="bg-white p-8 rounded-xl card-shadow border-2 main-border max-w-lg w-full">
+            <h1 class="text-3xl font-bold main-text mb-6 text-center" id="login-title">Account Login</h1>
+
+            <div class="flex flex-col mb-6">
+                <label class="block text-gray-700 font-medium mb-2">Select your role:</label>
+                <div class="flex justify-around space-x-2">
+                    <label class="flex-1 text-center bg-gray-100 p-3 rounded-lg cursor-pointer hover:bg-gray-200">
+                        <input type="radio" name="role" value="student" class="mr-2" checked>Student
+                    </label>
+                    <label class="flex-1 text-center bg-gray-100 p-3 rounded-lg cursor-pointer hover:bg-gray-200">
+                        <input type="radio" name="role" value="moderator" class="mr-2">Moderator
+                    </label>
+                    <label class="flex-1 text-center bg-gray-100 p-3 rounded-lg cursor-pointer hover:bg-gray-200">
+                        <input type="radio" name="role" value="admin" class="mr-2">Admin
+                    </label>
+                </div>
+            </div>
+
+            <form id="login-form" class="space-y-4">
+                <div>
+                    <label for="login-email" class="block text-gray-700 font-medium mb-1">Email</label>
+                    <input type="email" id="login-email" class="w-full p-3 border main-border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Enter your email">
+                </div>
+                <div>
+                    <label for="login-password" class="block text-gray-700 font-medium mb-1">Password</label>
+                    <input type="password" id="login-password" class="w-full p-3 border main-border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Enter your password">
+                </div>
+                <button type="submit" class="main-bg text-white w-full p-3 rounded-lg hover:bg-opacity-90">Login</button>
+            </form>
+
+            <form id="signup-form" class="space-y-4 hidden">
+                <div>
+                    <label for="signup-email" class="block text-gray-700 font-medium mb-1">Email</label>
+                    <input type="email" id="signup-email" class="w-full p-3 border main-border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Enter your email">
+                </div>
+                <div>
+                    <label for="signup-password" class="block text-gray-700 font-medium mb-1">Password</label>
+                    <input type="password" id="signup-password" class="w-full p-3 border main-border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Create a password">
+                </div>
+                <button type="submit" class="main-bg text-white w-full p-3 rounded-lg hover:bg-opacity-90">Sign Up</button>
+            </form>
+
+            <div class="mt-4 text-center">
+                <p class="text-sm text-gray-500">
+                    Don't have an account? <a href="#" id="show-signup" class="main-text font-semibold hover:underline">Sign Up</a>
+                </p>
+                <p class="text-sm text-gray-500 hidden" id="show-login-link">
+                    Already have an account? <a href="#" id="show-login" class="main-text font-semibold hover:underline">Log In</a>
+                </p>
+            </div>
+        </div>
+    </div>
+<!-- //resouuce hub -->
+
+    <div id="resource-hub-page" class="page hidden">
+        <h1 class="text-4xl font-bold main-text mb-6">Resource Hub</h1>
+        <div class="bg-white p-8 rounded-xl card-shadow border-2 main-border">
+            <p class="text-gray-600 mb-6">Explore our curated collection of resources for well-being. We've handpicked some of the most helpful and informative content to support your mental and emotional health journey.</p>
+
+            <div class="mb-6">
+                <h2 class="text-2xl font-semibold main-text mb-4">Video Recommendation of the Day</h2>
+                <img src="https://placehold.co/400x200/6B46C1/FFFFFF?text=Video+Preview" alt="Video Preview" class="w-full h-auto rounded-lg shadow-md mb-2" />
+                <a href="https://youtu.be/ZQUxL4Jm1Lo?si=h97KnsNyu4E9z3O3" target="_blank" class="text-blue-600 hover:underline">https://youtu.be/ZQUxL4Jm1Lo?si=h97KnsNyu4E9z3O3</a>
+            </div>
+
+            <div class="mb-6">
+                <h2 class="text-2xl font-semibold main-text mb-4">Article Recommendation of the Day</h2>
+                <img src="https://placehold.co/400x200/6B46C1/FFFFFF?text=Article+Preview" alt="Article Preview" class="w-full h-auto rounded-lg shadow-md mb-2" />
+                <a href="https://magazine.columbia.edu/article/best-way-stop-negative-thought-spiral" target="_blank" class="text-blue-600 hover:underline">https://magazine.columbia.edu/article/best-way-stop-negative-thought-spiral</a>
+            </div>
+
+            <div>
+                <h2 class="text-2xl font-semibold main-text mb-4">App Recommendation of the Day</h2>
+                <img src="https://placehold.co/400x200/6B46C1/FFFFFF?text=App+Preview" alt="App Preview" class="w-full h-auto rounded-lg shadow-md mb-2" />
+                <a href="https://play.google.com/store/apps/details?id=com.underthing.focus.friend&pcampaignid=web_share" target="_blank" class="text-blue-600 hover:underline">https://play.google.com/store/apps/details?id=com.underthing.focus.friend&pcampaignid=web_share</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- peer support post  -->
+    <!-- <h1 class="peer-heading">Peer Supporters</h1>
+    
+    <div id="supportSection" class="feature-content">
+        <div class="supporter-list">
+            <div class="pa-card contact-card">
+                <div class="user-info">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rahul" class="user-img">
+                    <div class="details">
+                        <h4>Rahul Sharma</h4>
+                        <p>Psychology Student | Age: 24</p>
+                    </div>
+                </div>
+                <div class="action-row">
+                    <a href="tel:8010604221" class="act-btn call"><i class="fas fa-phone"></i> Call</a>
+                    <a href="https://wa.me/8010604221" class="act-btn wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <button class="act-btn video"><i class="fas fa-video"></i> Video</button>
+                </div>
+            </div>
+
+            <div class="pa-card contact-card">
+                <div class="user-info">
+                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Priya" class="user-img">
+                    <div class="details">
+                        <h4>Priya Patel</h4>
+                        <p>Social Worker | Age: 26</p>
+                    </div>
+                </div>
+                <div class="action-row">
+                    <a href="tel:9158515258" class="act-btn call"><i class="fas fa-phone"></i> Call</a>
+                    <a href="https://wa.me/9158515258" class="act-btn wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <button class="act-btn video"><i class="fas fa-video"></i> Video</button>
+                </div>
+            </div>
+
+            <div class="pa-card contact-card">
+                <div class="user-info">
+                    <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Aman" class="user-img">
+                    <div class="details">
+                        <h4>Aman Verma</h4>
+                        <p>Counselling Intern | Age: 23</p>
+                    </div>
+                </div>
+                <div class="action-row">
+                    <a href="tel:9021393814" class="act-btn call"><i class="fas fa-phone"></i> Call</a>
+                    <a href="https://wa.me/9021393814" class="act-btn wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <button class="act-btn video"><i class="fas fa-video"></i> Video</button>
+                </div>
+            </div>
+
+            <div class="pa-card contact-card">
+                <div class="user-info">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Sneha" class="user-img">
+                    <div class="details">
+                        <h4>Sneha Gupta</h4>
+                        <p>NGO Volunteer | Age: 25</p>
+                    </div>
+                </div>
+                <div class="action-row">
+                    <a href="tel:7447482285" class="act-btn call"><i class="fas fa-phone"></i> Call</a>
+                    <a href="https://wa.me/7447482285" class="act-btn wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <button class="act-btn video"><i class="fas fa-video"></i> Video</button>
+                </div>
+            </div>
+
+            <div class="pa-card contact-card">
+                <div class="user-info">
+                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Karan" class="user-img">
+                    <div class="details">
+                        <h4>Karan Mehta</h4>
+                        <p>Mental Health Volunteer | Age: 27</p>
+                    </div>
+                </div>
+                <div class="action-row">
+                    <a href="tel:8668962556" class="act-btn call"><i class="fas fa-phone"></i> Call</a>
+                    <a href="https://wa.me/8668962556" class="act-btn wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <button class="act-btn video"><i class="fas fa-video"></i> Video</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<h1 class ="muskan">Community Feed</h1>
+    <div id="feed" class="tab-content active">
+        <div class="pa-card composer">
+            <h3>Share Your Feelings</h3>
+            <textarea id="postInput" placeholder="What's on your mind?"></textarea>
+            <div class="composer-footer">
+                <div class="controls">
+                    <select id="moodSelect">
+                        <option>😊 Happy</option>
+                        <option>😰 Stressed</option>
+                        <option>😔 Sad</option>
+                    </select>
+                    <label><input type="checkbox" id="anonCheck"> Anonymous</label>
+                </div>
+                <button class="btn-primary" onclick="createPost()">Post to Forum</button>
+            </div>
+        </div>
+
+        <div id="postFeed">
+            </div>
+    </div> -->
+
+    <div id="peer-forum-page" class="page hidden">
+        <h1 class="text-4xl font-bold main-text mb-6">Community Feed</h1>
+        <div id="feed" class="tab-content active mb-12">
+            <div class="pa-card composer bg-white p-6 rounded-xl border-2 main-border mb-6">
+                <h3 class="text-xl font-bold main-text mb-4">Share Your Feelings</h3>
+                <textarea id="postInput" class="w-full p-3 border main-border rounded-lg mb-4" placeholder="What's on your mind?"></textarea>
+                <div class="composer-footer flex justify-between items-center">
+                    <div class="controls flex gap-4 items-center">
+                        <select id="moodSelect" class="p-2 border rounded-lg">
+                            <option>😊 Happy</option>
+                            <option>😰 Stressed</option>
+                            <option>😔 Sad</option>
+                        </select>
+                        <label class="text-gray-600"><input type="checkbox" id="anonCheck" class="mr-2"> Anonymous</label>
+                    </div>
+                    <button class="main-bg text-white px-6 py-2 rounded-lg" onclick="createPost()">Post to Forum</button>
+                </div>
+            </div>
+            <div id="postFeed" class="space-y-4"></div>
+        </div>
+
+        <h1 class="text-4xl font-bold main-text mb-6">Peer Supporters</h1>
+        <div id="supportSection" class="feature-content">
+            <div class="supporter-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="pa-card contact-card bg-white p-6 rounded-xl border-2 main-border shadow-md">
+                    <div class="user-info flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rahul" class="w-16 h-16 rounded-full mr-4 border-2 border-purple-500">
+                        <div class="details">
+                            <h4 class="font-bold text-lg">Rahul Sharma</h4>
+                            <p class="text-sm text-gray-500">Psychology Student | Age: 24</p>
+                        </div>
+                    </div>
+                    <div class="action-row flex justify-between gap-2 mt-4">
+                        <a href="tel:8010604221" class="flex-1 text-center bg-green-500 text-white p-2 rounded-lg text-sm font-bold">Call</a>
+                        <a href="https://wa.me/8010604221" class="flex-1 text-center bg-green-600 text-white p-2 rounded-lg text-sm font-bold">WhatsApp</a>
+                        <button class="flex-1 text-center bg-blue-500 text-white p-2 rounded-lg text-sm font-bold">Video</button>
+                    </div>
+                </div>
+
+                <div class="pa-card contact-card bg-white p-6 rounded-xl border-2 main-border shadow-md">
+                    <div class="user-info flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Priya" class="w-16 h-16 rounded-full mr-4 border-2 border-purple-500">
+                        <div class="details">
+                            <h4 class="font-bold text-lg">Priya Patel</h4>
+                            <p class="text-sm text-gray-500">Social Worker | Age: 26</p>
+                        </div>
+                    </div>
+                    <div class="action-row flex justify-between gap-2 mt-4">
+                        <a href="tel:9158515258" class="flex-1 text-center bg-green-500 text-white p-2 rounded-lg text-sm font-bold">Call</a>
+                        <a href="https://wa.me/9158515258" class="flex-1 text-center bg-green-600 text-white p-2 rounded-lg text-sm font-bold">WhatsApp</a>
+                        <button class="flex-1 text-center bg-blue-500 text-white p-2 rounded-lg text-sm font-bold">Video</button>
+                    </div>
+                </div>
+
+                <div class="pa-card contact-card bg-white p-6 rounded-xl border-2 main-border shadow-md">
+                    <div class="user-info flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Aman" class="w-16 h-16 rounded-full mr-4 border-2 border-purple-500">
+                        <div class="details">
+                            <h4 class="font-bold text-lg">Aman Verma</h4>
+                            <p class="text-sm text-gray-500">Counselling Intern | Age: 23</p>
+                        </div>
+                    </div>
+                    <div class="action-row flex justify-between gap-2 mt-4">
+                        <a href="tel:9021393814" class="flex-1 text-center bg-green-500 text-white p-2 rounded-lg text-sm font-bold">Call</a>
+                        <a href="https://wa.me/9021393814" class="flex-1 text-center bg-green-600 text-white p-2 rounded-lg text-sm font-bold">WhatsApp</a>
+                        <button class="flex-1 text-center bg-blue-500 text-white p-2 rounded-lg text-sm font-bold">Video</button>
+                    </div>
+                </div>
+
+                <div class="pa-card contact-card bg-white p-6 rounded-xl border-2 main-border shadow-md">
+                    <div class="user-info flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Sneha" class="w-16 h-16 rounded-full mr-4 border-2 border-purple-500">
+                        <div class="details">
+                            <h4 class="font-bold text-lg">Sneha Gupta</h4>
+                            <p class="text-sm text-gray-500">NGO Volunteer | Age: 25</p>
+                        </div>
+                    </div>
+                    <div class="action-row flex justify-between gap-2 mt-4">
+                        <a href="tel:7447482285" class="flex-1 text-center bg-green-500 text-white p-2 rounded-lg text-sm font-bold">Call</a>
+                        <a href="https://wa.me/7447482285" class="flex-1 text-center bg-green-600 text-white p-2 rounded-lg text-sm font-bold">WhatsApp</a>
+                        <button class="flex-1 text-center bg-blue-500 text-white p-2 rounded-lg text-sm font-bold">Video</button>
+                    </div>
+                </div>
+
+                <div class="pa-card contact-card bg-white p-6 rounded-xl border-2 main-border shadow-md">
+                    <div class="user-info flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Karan" class="w-16 h-16 rounded-full mr-4 border-2 border-purple-500">
+                        <div class="details">
+                            <h4 class="font-bold text-lg">Karan Mehta</h4>
+                            <p class="text-sm text-gray-500">Mental Health Volunteer | Age: 27</p>
+                        </div>
+                    </div>
+                    <div class="action-row flex justify-between gap-2 mt-4">
+                        <a href="tel:8668962556" class="flex-1 text-center bg-green-500 text-white p-2 rounded-lg text-sm font-bold">Call</a>
+                        <a href="https://wa.me/8668962556" class="flex-1 text-center bg-green-600 text-white p-2 rounded-lg text-sm font-bold">WhatsApp</a>
+                        <button class="flex-1 text-center bg-blue-500 text-white p-2 rounded-lg text-sm font-bold">Video</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+<!-- //wellness hub -->
+    <div id="wellness-page" class="page hidden">
+        <h1 class="text-4xl font-bold main-text mb-6">Wellness Corner</h1>
+        <div class="bg-white p-8 rounded-xl card-shadow border-2 main-border">
+            <p class="text-gray-600 mb-4">This page is dedicated to holistic well-being, featuring healthy recipes and wellness tips.</p>
+            <p class="text-gray-500 italic">**Content:** Add sections for healthy recipes, fitness tips, and mindfulness exercises.</p>
+<!-- //wellness quote  -->
+            <div id="quote-container" class="mt-8 pt-8 border-t-2 main-border">
+                <h2 class="text-2xl font-semibold main-text mb-4">Quote of the Moment</h2>
+                <div class="bg-gray-100 p-6 rounded-xl text-center italic text-gray-700">
+                    <p id="quote" class="text-lg"></p>
+                </div>
+                <div class="mt-4 flex justify-center">
+                    <button id="new-quote-btn" class="main-bg text-white px-6 py-3 rounded-lg shadow-md hover:bg-opacity-90">
+                        New Quote
+                    </button>
+                </div>
+            </div>
+            </div>
+    </div>
+<!-- //admin dashborad  -->
+    <div id="admin-dashboard-page" class="page hidden">
+        <h1 class="text-4xl font-bold main-text mb-6">Admin Dashboard</h1>
+        <div class="bg-white p-8 rounded-xl card-shadow border-2 main-border">
+            <p class="text-gray-600 mb-4">This page would be an analytics dashboard for administrators to monitor user engagement and resource usage.</p>
+            <p class="text-gray-500 italic">**Backend Required:** This feature needs a system to collect, process, and visualize user data.</p>
+        </div>
+    </div>
+
+    <div id="success-modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white p-8 rounded-xl card-shadow max-w-md w-full border-2 main-border">
+            <h2 class="text-2xl font-bold mb-4 main-text">Success!</h2>
+            <p class="text-gray-700 mb-6" id="success-message"></p>
+            <div class="flex justify-end">
+                <button id="close-success-modal" class="main-bg text-white px-6 py-3 rounded-lg shadow-md hover:bg-opacity-90">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="error-modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white p-8 rounded-xl card-shadow max-w-md w-full border-2 border-red-500">
+            <h2 class="text-2xl font-bold mb-4 text-red-500">Booking Failed</h2>
+            <p class="text-gray-700 mb-6" id="error-message"></p>
+            <div class="flex justify-end">
+                <button id="close-error-modal" class="bg-red-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-red-600">Close</button>
+            </div>
+        </div>
+    </div>
+    <script="app.js"></script>
+</body>
+</html>
