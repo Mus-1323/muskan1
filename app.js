@@ -579,3 +579,47 @@ function createPost() {
     feed.insertAdjacentHTML('afterbegin', postHTML);
     document.getElementById('postInput').value = "";
 }
+//wellness
+// Keep track of the interval so we can stop it when leaving the page
+let breathingInterval = null;
+
+function showPage(pageId) {
+    // 1. Hide all pages
+    pages.forEach(p => p.classList.add('hidden'));
+
+    // 2. Show the selected page
+    const target = document.getElementById(pageId);
+    if (target) {
+        target.classList.remove('hidden');
+    }
+
+    // 3. FEATURE ISOLATION LOGIC
+    if (pageId === 'wellness-page') {
+        // Start breathing logic ONLY when entering the wellness page
+        if (!breathingInterval) {
+            startBreathingLogic();
+        }
+    } else {
+        // Stop the logic when the user leaves the wellness page to save memory
+        clearInterval(breathingInterval);
+        breathingInterval = null;
+    }
+}
+
+function startBreathingLogic() {
+    const circle = document.getElementById('breathing-circle');
+    const instruction = document.getElementById('breathing-instruction');
+    
+    // Set the interval and store it in our global variable
+    breathingInterval = setInterval(() => {
+        if (circle.classList.contains('grow')) {
+            circle.classList.remove('grow');
+            circle.innerText = "Exhale";
+            instruction.innerText = "Slowly release your breath...";
+        } else {
+            circle.classList.add('grow');
+            circle.innerText = "Inhale";
+            instruction.innerText = "Fill your lungs with air...";
+        }
+    }, 4000);
+}
