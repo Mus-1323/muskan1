@@ -580,37 +580,38 @@ function createPost() {
     document.getElementById('postInput').value = "";
 }
 //wellness
-// Keep track of the interval so we can stop it when leaving the page
-let breathingInterval = null;
+// --- WELLNESS STATE (Memory) ---
+// These MUST be outside of functions so the computer 'remembers' your progress
+let breathingInterval = null; 
+let waterGlasses = 0; 
 
-function showPage(pageId) {
-    // 1. Hide all pages
-    pages.forEach(p => p.classList.add('hidden'));
-
-    // 2. Show the selected page
-    const target = document.getElementById(pageId);
-    if (target) {
-        target.classList.remove('hidden');
-    }
-
-    // 3. FEATURE ISOLATION LOGIC
-    if (pageId === 'wellness-page') {
-        // Start breathing logic ONLY when entering the wellness page
-        if (!breathingInterval) {
-            startBreathingLogic();
+// --- WELLNESS AUTO-TRIGGER ---
+// This watches for clicks on your nav links and starts/stops wellness tools automatically
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+        const pageId = e.currentTarget.getAttribute('data-page');
+        
+        if (pageId === 'wellness-page') {
+            // Start the breathing timer ONLY if it's not already running
+            if (!breathingInterval) {
+                startBreathingLogic();
+            }
+        } else {
+            // Stop the timer when you leave wellness to save browser performance
+            if (breathingInterval) {
+                clearInterval(breathingInterval);
+                breathingInterval = null;
+            }
         }
-    } else {
-        // Stop the logic when the user leaves the wellness page to save memory
-        clearInterval(breathingInterval);
-        breathingInterval = null;
-    }
-}
+    });
+});
 
+// --- WELLNESS FUNCTIONS ---
 function startBreathingLogic() {
     const circle = document.getElementById('breathing-circle');
     const instruction = document.getElementById('breathing-instruction');
-    
-    // Set the interval and store it in our global variable
+    if (!circle) return;
+
     breathingInterval = setInterval(() => {
         if (circle.classList.contains('grow')) {
             circle.classList.remove('grow');
@@ -621,5 +622,15 @@ function startBreathingLogic() {
             circle.innerText = "Inhale";
             instruction.innerText = "Fill your lungs with air...";
         }
-    }, 4000);
+    }, 4000); // Toggles every 4 seconds to match the 4-7-8 breathing style
+}
+
+function addWater() {
+    const dailyGoal = 8;
+    if (waterGlasses < dailyGoal) {
+        waterGlasses++;
+        const progress = (waterGlasses / dailyGoal) * 100;
+        document.getElementById('water-progress').style.width = progress + "%";
+        document.getElementById('water-count').innerText = `${waterGlasses}/${dailyGoal}`;
+    }
 }
