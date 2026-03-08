@@ -637,6 +637,53 @@ function addWater() {
         if (textCount) textCount.innerText = `${waterGlasses}/${dailyGoal}`;
     }
 }
+/* Splash Screen */
+
+#splash{
+position:fixed;
+width:100%;
+height:100vh;
+background:#6A4CFF;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+.logo-container{
+text-align:center;
+color:white;
+animation: smash 1.8s ease;
+}
+
+.logo-circle{
+width:120px;
+height:120px;
+background:white;
+color:#6A4CFF;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:40px;
+font-weight:bold;
+margin:auto;
+}
+
+@keyframes smash{
+
+0%{transform:scale(0);}
+40%{transform:scale(1.3);}
+60%{transform:scale(0.9);}
+80%{transform:scale(1.1);}
+100%{transform:scale(1);}
+
+}
+
+#main-content{
+display:none;
+}
+
 
 
 
