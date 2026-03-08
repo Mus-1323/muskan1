@@ -341,7 +341,7 @@ textarea { width: 100%; border: 1px solid #ddd; border-radius: 10px; padding: 12
 }
 /* Hide website first */
 #main-content{
-display:none;
+opacity:0;
 }
 
 /* Splash Screen */
@@ -386,3 +386,4 @@ font-weight:bold;
 
 margin:auto;
 }
+
