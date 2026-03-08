@@ -650,7 +650,6 @@ splash.style.opacity = "0";
 setTimeout(function(){
 splash.style.display = "none";
 },500);
-
 }
 
 },2000);
