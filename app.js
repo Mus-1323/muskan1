@@ -638,16 +638,21 @@ function addWater() {
     }
 }
 //spash 
-document.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("load", function(){
 
-setTimeout(function () {
+setTimeout(function(){
 
 const splash = document.getElementById("splash");
-const main = document.getElementById("main-content");
 
-if (splash) splash.style.display = "none";
-if (main) main.style.opacity = "1";
+if(splash){
+splash.style.opacity = "0";
 
-}, 2000);
+setTimeout(function(){
+splash.style.display = "none";
+},500);
+
+}
+
+},2000);
 
 });
