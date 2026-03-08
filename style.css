@@ -339,89 +339,50 @@ textarea { width: 100%; border: 1px solid #ddd; border-radius: 10px; padding: 12
     transform: translateY(-2px);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
-/* Hide main website at start */
+/* Hide website first */
 #main-content{
-display: none;
+display:none;
 }
-
 
 /* Splash Screen */
 #splash{
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100vh;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100vh;
+background:#6A4CFF;
 
-background: #6A4CFF;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
 
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
-
-z-index: 99999;
+z-index:99999;
 }
 
-
-/* Logo Container */
+/* Logo container */
 .logo-container{
-text-align: center;
-color: white;
-animation: smash 1.8s ease;
+text-align:center;
+color:white;
 }
 
-
-/* Logo Circle */
+/* Logo circle */
 .logo-circle{
-width: 120px;
-height: 120px;
+width:120px;
+height:120px;
 
-background: white;
-color: #6A4CFF;
+background:white;
+color:#6A4CFF;
 
-border-radius: 50%;
+border-radius:50%;
 
-display: flex;
-justify-content: center;
-align-items: center;
+display:flex;
+justify-content:center;
+align-items:center;
 
-font-size: 40px;
-font-weight: bold;
+font-size:40px;
+font-weight:bold;
 
-margin: auto;
-}
-
-
-/* Logo Text */
-.logo-container h1{
-margin-top: 10px;
-font-size: 32px;
-letter-spacing: 2px;
-}
-
-
-/* Smash Animation */
-@keyframes smash{
-
-0%{
-transform: scale(0);
-}
-
-40%{
-transform: scale(1.3);
-}
-
-60%{
-transform: scale(0.9);
-}
-
-80%{
-transform: scale(1.1);
-}
-
-100%{
-transform: scale(1);
-}
-
+margin:auto;
 }
