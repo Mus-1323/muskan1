@@ -637,21 +637,3 @@ function addWater() {
         if (textCount) textCount.innerText = `${waterGlasses}/${dailyGoal}`;
     }
 }
-//spash 
-window.addEventListener("load", function(){
-
-setTimeout(function(){
-
-const splash = document.getElementById("splash");
-
-if(splash){
-splash.style.opacity = "0";
-
-setTimeout(function(){
-splash.style.display = "none";
-},500);
-}
-
-},2000);
-
-});
