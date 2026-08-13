@@ -4,7 +4,7 @@ Idea Title:-
 
 Smart Digital Mental Health Support Platform for Students
 
-"Because every student deserves mental support, anytime, anywhere."
+"Because every student needs mental support, anytime, anywhere."
 
 Idea Description:- 
 
