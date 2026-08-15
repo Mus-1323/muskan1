@@ -256,7 +256,7 @@
                 try {
                     const systemPrompt = "You are a supportive and empathetic AI assistant for a student wellness platform. Your goal is to provide helpful, general advice and guidance on topics like stress, time management, and mental well-being. Always maintain a kind and encouraging tone. Do not give medical advice.";
                     const userQuery = userMessage;
-                    const apiKey = "AIzaSyBDxbls9VC6LyLSErX3gyCd7nkv1jMlDi4";
+                    const apiKey = "AQ.Ab8RN6J1clT7caeUxh2jivNWr4CJDWs6sWAgOjRO0GTbR2ebDQ";
                     // CORRECT MODEL: gemini-2.5-flash
                     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`; 
                     const payload = {
