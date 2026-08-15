@@ -254,28 +254,35 @@
                 chatContainer.scrollTop = chatContainer.scrollHeight;
 
                 try {
-                    const systemPrompt = "You are a supportive and empathetic AI assistant for a student wellness platform. Your goal is to provide helpful, general advice and guidance on topics like stress, time management, and mental well-being. Always maintain a kind and encouraging tone. Do not give medical advice.";
-                    const userQuery = userMessage;
-                    const apiKey = "AQ.Ab8RN6J1clT7caeUxh2jivNWr4CJDWs6sWAgOjRO0GTbR2ebDQ";
-                    // gemini-2.0-flash
-                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`; 
-                    const payload = {
-                        contents: [{ parts: [{ text: userQuery }] }],
-                        systemInstruction: {
-                            parts: [{ text: systemPrompt }]
-                        },
-                    };
+                 const systemPrompt = "You are a supportive and empathetic AI assistant for a student wellness platform. Your goal is to provide helpful, general advice and guidance on topics like stress, time management, and mental well-being. Always maintain a kind and encouraging tone. Do not give medical advice.";
+                 const userQuery = userMessage;
+                 const apiKey = "AQ.Ab8RN6J1clT7caeUxh2jivNWr4CJDWs6sWAgOjRO0GTbR2ebDQ";
 
-                    let retryCount = 0;
-                    const maxRetries = 3;
-                    let response;
-                    while(retryCount < maxRetries) {
-                        try {
-                            response = await fetch(apiUrl, {
-                                method: 'POST',
-                                headers: { 'Content-Type': 'application/json' },
-                                body: JSON.stringify(payload)
-                            });
+                 // 1. URL without the ?key= parameter
+                 const apiUrl = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent"; 
+
+                  const payload = {
+                  contents: [{ parts: [{ text: userQuery }] }],
+                  systemInstruction: {
+                   parts: [{ text: systemPrompt }]
+                   },
+              };
+
+                  let retryCount = 0;
+                  const maxRetries = 3;
+                  let response;
+                  while(retryCount < maxRetries) {
+            try {
+                  response = await fetch(apiUrl, {
+                   method: 'POST',
+                    // 2. Added x-goog-api-key header for authentication
+                    headers: { 
+                    'Content-Type': 'application/json',
+                     'x-goog-api-key': apiKey
+                  },
+                   body: JSON.stringify(payload)
+       
+             });
                             // Stop retrying if successful or a non-rate-limit error (like 503)
                             if (response.status !== 429) break; 
                             retryCount++;
