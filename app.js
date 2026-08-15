@@ -256,7 +256,7 @@
                 try {
                  const systemPrompt = "You are a supportive and empathetic AI assistant for a student wellness platform. Your goal is to provide helpful, general advice and guidance on topics like stress, time management, and mental well-being. Always maintain a kind and encouraging tone. Do not give medical advice.";
                  const userQuery = userMessage;
-                 const apiKey = "AQ.Ab8RN6J1clT7caeUxh2jivNWr4CJDWs6sWAgOjRO0GTbR2ebDQ";
+                 const apiKey = "AQ.Ab8RN6IOH4OjQO8g6m-pHyj75tKKCtGsw8wGak4lnRfpPHGumg";
 
                  // 1. URL without the ?key= parameter
                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent`;
