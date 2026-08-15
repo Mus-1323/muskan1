@@ -259,7 +259,7 @@
                  const apiKey = "AQ.Ab8RN6J1clT7caeUxh2jivNWr4CJDWs6sWAgOjRO0GTbR2ebDQ";
 
                  // 1. URL without the ?key= parameter
-                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent`;
 
                   const payload = {
                   contents: [{ parts: [{ text: userQuery }] }],
