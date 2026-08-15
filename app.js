@@ -253,93 +253,76 @@
                 chatContainer.appendChild(aiLoadingDiv);
                 chatContainer.scrollTop = chatContainer.scrollHeight;
 
-                try {
-                 const systemPrompt = "You are a supportive and empathetic AI assistant for a student wellness platform. Your goal is to provide helpful, general advice and guidance on topics like stress, time management, and mental well-being. Always maintain a kind and encouraging tone. Do not give medical advice.";
+try {
+    const systemPrompt = "You are a supportive and empathetic AI assistant for a student wellness platform. Your goal is to provide helpful, general advice and guidance on topics like stress, time management, and mental well-being. Always maintain a kind and encouraging tone. Do not give medical advice.";
 
-const userQuery = userMessage;
+    const userQuery = userMessage;
 
-// Put your NEW Groq API key here
-const apiKey = "YOUR_NEW_GROQ_API_KEY";
+    const apiKey = "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";
 
-const apiUrl = "https://api.groq.com/openai/v1/chat/completions";
+    const apiUrl = "https://api.groq.com/openai/v1/chat/completions";
 
-const payload = {
-    model: "openai/gpt-oss-20b",
-    messages: [
-        {
-            role: "system",
-            content: systemPrompt
-        },
-        {
-            role: "user",
-            content: userQuery
-        }
-    ]
-};
-
-let retryCount = 0;
-const maxRetries = 3;
-let response;
-
-while (retryCount < maxRetries) {
-    try {
-        response = await fetch(apiUrl, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${apiKey}`
+    const payload = {
+        model: "openai/gpt-oss-20b",
+        messages: [
+            {
+                role: "system",
+                content: systemPrompt
             },
-            body: JSON.stringify(payload)
-        });
+            {
+                role: "user",
+                content: userQuery
+            }
+        ]
+    };
 
-        break;
+    const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${apiKey}`
+        },
+        body: JSON.stringify(payload)
+    });
 
-    } catch (error) {
-        retryCount++;
+    const data = await response.json();
 
-        if (retryCount >= maxRetries) {
-            throw error;
-        }
-
-        await new Promise(resolve => setTimeout(resolve, 1000));
+    if (!response.ok) {
+        throw new Error(data.error?.message || "Groq API error");
     }
+
+    const reply = data.choices[0].message.content;
+
+    const formattedReply = formatTextToHtml(reply);
+
+    aiLoadingDiv.remove();
+
+    const aiMessageDiv = document.createElement('div');
+    aiMessageDiv.className = 'flex justify-start mb-5 chat-entry-animation';
+
+    aiMessageDiv.innerHTML =
+        `<div class="main-bg text-white p-3 rounded-lg max-w-xl">${formattedReply}</div>`;
+
+    chatContainer.appendChild(aiMessageDiv);
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+
+} catch (error) {
+    console.error("Groq API Error:", error);
+
+    aiLoadingDiv.remove();
+
+    const aiMessageDiv = document.createElement('div');
+    aiMessageDiv.className = 'flex justify-start mb-5 chat-entry-animation';
+
+    aiMessageDiv.innerHTML =
+        `<div class="main-bg text-white p-3 rounded-lg max-w-xl">
+            I'm sorry, I'm having trouble connecting right now. Please try again in a moment.
+            Error: ${error.message}
+        </div>`;
+
+    chatContainer.appendChild(aiMessageDiv);
+    chatContainer.scrollTop = chatContainer.scrollHeight;
 }
-
-const data = await response.json();
-
-if (!response.ok) {
-    throw new Error(data.error?.message || "Groq API error");
-}
-
-const reply = data.choices[0].message.content;
-                            // Stop retrying if successful or a non-rate-limit error (like 503)
-                            if (response.status !== 429) break; 
-                            retryCount++;
-                            const delay = Math.pow(2, retryCount) * 1000;
-                            await new Promise(resolve => setTimeout(resolve, delay));
-                        } catch(e) {
-                            retryCount++;
-                            const delay = Math.pow(2, retryCount) * 1000;
-                            await new Promise(resolve => setTimeout(resolve, delay));
-                        }
-                    }
-
-                    if (!response || !response.ok) {
-                        const errorData = await response.json();
-                        console.error("API Error Response:", errorData);
-                        throw new Error(`API call failed: ${response.status} ${response.statusText} - ${errorData.error.message}`);
-                    }
-
-                    const data = await response.json();
-                    const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, I couldn’t generate a response.";
-                    
-                    // Format the raw text reply into readable HTML
-                    const formattedReply = formatTextToHtml(reply);
-
-                    aiLoadingDiv.remove();
-                    const aiMessageDiv = document.createElement('div');
-                    // Added chat-entry-animation class
-                    aiMessageDiv.className = 'flex justify-start mb-5 chat-entry-animation';
                     
                     // Use innerHTML to render the formatted text, increased max width to max-w-xl
                     aiMessageDiv.innerHTML = `<div class="main-bg text-white p-3 rounded-lg max-w-xl">${formattedReply}</div>`; 
